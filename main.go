@@ -129,6 +129,7 @@ func main() {
 	if *method == "full" {
 		// Get all files in the repository
 		files, err := filepath.Glob("*.c") // Adjust the pattern as needed for your project
+		fmt.Println(files)
 		if err != nil {
 			log.Fatalf("Error listing files: %v", err)
 		}
@@ -146,6 +147,8 @@ func main() {
 			if err != nil {
 				log.Fatalf("Error analyzing code: %v", err)
 			}
+			print("response ***")
+			fmt.Println(response)
 
 			var entries []ReportEntry
 			if err := json.Unmarshal([]byte(response), &entries); err != nil {
