@@ -1,0 +1,43 @@
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Static Code Analysis Report</title>
+		<style>
+			body { font-family: Arial, sans-serif; margin: 20px; }
+			table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+			table, th, td { border: 1px solid black; }
+			th, td { padding: 8px; text-align: left; }
+			th { background-color: #f2f2f2; }
+		</style>
+	</head>
+	<body>
+		<h1>Static Code Analysis Report</h1>
+		
+			<h2>File: test.c</h2>
+			<table>
+				<tr>
+					<th>Line Number</th>
+					<th>Line Content</th>
+					<th>Source</th>
+					<th>Rule</th>
+					<th>Severity</th>
+					<th>Description</th>
+					<th>Recommendation</th>
+				</tr>
+				
+				<tr>
+					<td>2</td>
+					<td>int main() {</td>
+					<td>MISRA C Coding Guidelines</td>
+					<td>Rule 6: Enclose the statement forming the body of control structures (`if`, `else if`, `else`, `while`, `do ... while`, `for`) in braces.</td>
+					<td>mandatory</td>
+					<td>Enclose the main function with a pair of curly braces to define its scope.</td>
+					<td>Add opening and closing curly braces around the main function.</td>
+				</tr>
+				
+			</table>
+		
+	</body>
+	</html>
+	

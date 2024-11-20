@@ -1,0 +1,14 @@
+{
+  "test.c": [
+    {
+      "uri": "main.c",
+      "line_number": 2,
+      "line_content": "int main() {",
+      "source": "MISRA C Coding Guidelines",
+      "rule": "Rule 6: Enclose the statement forming the body of control structures (`if`, `else if`, `else`, `while`, `do ... while`, `for`) in braces.",
+      "severity": "mandatory",
+      "description": "Enclose the main function with a pair of curly braces to define its scope.",
+      "recommendation": "Add opening and closing curly braces around the main function."
+    }
+  ]
+}
