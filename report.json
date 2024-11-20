@@ -9,6 +9,16 @@
       "severity": "mandatory",
       "description": "Enclose the main function with a pair of curly braces to define its scope.",
       "recommendation": "Add opening and closing curly braces around the main function."
+    },
+    {
+      "uri": "main.c",
+      "line_number": 5,
+      "line_content": "printf(\"Number: %d, Square: %d\\n\", i, i * i);",
+      "source": "MISRA C Coding Guidelines",
+      "rule": "Rule 25: Use K\u0026R style for bracing; always brace even single-line statements.",
+      "severity": "mandatory",
+      "description": "Use consistent bracing styles throughout the code to ensure readability and maintainability.",
+      "recommendation": "Add a pair of curly braces around the printf statement."
     }
   ]
 }
