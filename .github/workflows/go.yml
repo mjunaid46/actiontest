@@ -33,6 +33,12 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: '1.23.1'
+       
+      - name: Build the Go application
+        run: GOOS=linux GOARCH=amd64 go build -o llm-code-analysis ./main.go
+
+      - name: Make the binary executable
+        run: chmod +x ./llm-code-analysis     
 
       - name: Run the analysis
         run: ./llm-code-analysis --method full
