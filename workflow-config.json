@@ -1,0 +1,7 @@
+{
+    "model_name": "llama3",
+    "model_max_tokens": 4096,
+    "model_temperature": 0.1,
+    "prompt_file": "misra_prompt_v3.txt"
+}
+  
