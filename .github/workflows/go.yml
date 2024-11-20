@@ -34,11 +34,8 @@ jobs:
         with:
           go-version: '1.23.1'
 
-      - name: Run Static Code Analysis
-        run: |
-          chmod +x ./llm-code-analysis
-          echo "Analysing Source Code...."
-          ./llm-code-analysis --method full
+      - name: Run the analysis
+        run: ./llm-code-analysis --method full
 
       - name: Commit and push report.json and report.html
         env:
