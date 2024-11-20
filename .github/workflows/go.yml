@@ -1,0 +1,61 @@
+name: Static Code Analysis
+
+on:
+  push:
+    branches: 
+        -main
+  pull_request:
+    branches: -main
+
+jobs:
+  code-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+      - name: Run ollama
+        run: |
+          ollama pull llama3
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Ensure we're on a branch
+        run: git checkout main
+
+      - name: Check Git State
+        run: |
+          git status
+          git log --oneline -5
+          git show-ref
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+
+      - name: Initialize Go module
+        run: go mod init github.com/your-username/Fuzz-LSP
+
+      - name: Install Go dependencies
+        run: go mod tidy    
+
+      - name: Build Static Code Analysis binary
+        run: go build -o llm-code-analysis ./llm-code-analysis.go
+
+      - name: Run Static Code Analysis
+        run: |
+          chmod +x ./llm-code-analysis
+          echo "Analysing Source Code...."
+          ./llm-code-analysis --method full
+
+      - name: Commit and push report.json and report.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.email "areeb.baig@zortik.com"
+          git config --global user.name "Mirza Areeb Baig"
+          git add report.json report.html
+          git commit -m "Update reports with static code analysis results"
+          git push origin main
