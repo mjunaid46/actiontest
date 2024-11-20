@@ -47,8 +47,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.email "areeb.baig@zortik.com"
-          git config --global user.name "Mirza Areeb Baig"
+          git config --global user.email "muhammad.junaid@zortik.com"
+          git config --global user.name "mjunaid46"
           git add report.json report.html
           git commit -m "Update reports with static code analysis results"
           git push origin main
