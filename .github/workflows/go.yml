@@ -41,7 +41,7 @@ jobs:
         run: go mod tidy    
 
       - name: Build Static Code Analysis binary
-        run: go build -o llm-code-analysis ./llm-code-analysis.go
+        run: go build -o llm-code-analysis ./main.go
 
       - name: Run Static Code Analysis
         run: |
